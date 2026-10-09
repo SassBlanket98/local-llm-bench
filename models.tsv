@@ -1,0 +1,21 @@
+# slug	hf_repo	gguf_file	kv_note
+ornith-1.5-9b	ornith-ai/Ornith-1.5-9B-GGUF	Ornith-1.5-9B-Q8_0.gguf	
+qwen3.5-9b	unsloth/Qwen3.5-9B-GGUF	Qwen3.5-9B-Q8_0.gguf	
+mimo-v2.6-distill-9b	bartowski/MiMo-V2.6-Distill-Qwen-9B-GGUF	MiMo-V2.6-Distill-Qwen-9B-Q8_0.gguf	
+gemma-4-12b	unsloth/gemma-4-12b-it-GGUF	gemma-4-12b-it-Q8_0.gguf	
+spark-x2.5-4b	XHToken/Spark-X2.5-4B-GGUF	Spark-X2.5-4B-Q8_0.gguf	
+gpt-oss-20b	ggml-org/gpt-oss-20b-GGUF	gpt-oss-20b-MXFP4.gguf	native MXFP4
+granite-4.2-8b	ibm-granite/granite-4.2-8b-GGUF	granite-4.2-8b-Q8_0.gguf	full-attn KV 5 GiB fp16; q8 KV likely needed
+nanbeige4.2-3b	bartowski/Nanbeige_Nanbeige4.2-3B-GGUF	Nanbeige_Nanbeige4.2-3B-Q8_0.gguf	
+qwen3.5-4b	unsloth/Qwen3.5-4B-GGUF	Qwen3.5-4B-Q8_0.gguf	
+minicpm5-2b	openbmb/MiniCPM5-2B-GGUF	MiniCPM5-2B-Q8_0.gguf	
+neohorse-1-9b	TokenRhythm/NeoHorse-1-9B-GGUF	NeoHorse-1-9B-Q8_0.gguf	
+lfm2.5-8b-a1b	LiquidAI/LFM2.5-8B-A1B-GGUF	LFM2.5-8B-A1B-Q8_0.gguf	
+gemma-4-e4b	unsloth/gemma-4-E4B-it-GGUF	gemma-4-E4B-it-Q8_0.gguf	
+mellum2-12b-thinking	JetBrains/Mellum2-12B-A2.5B-Thinking-GGUF-Q8_0	Mellum2-12B-A2.5B-Thinking-Q8_0.gguf	
+nemotron-3-nano-4b	unsloth/NVIDIA-Nemotron-3-Nano-4B-GGUF	NVIDIA-Nemotron-3-Nano-4B-Q8_0.gguf	
+ministral-3-14b-reasoning	unsloth/Ministral-3-14B-Reasoning-2512-GGUF	Ministral-3-14B-Reasoning-2512-Q6_K.gguf	Q8 doesn't fit; q8 KV needed
+lfm2.5-2.6b	LiquidAI/LFM2.5-2.6B-GGUF	LFM2.5-2.6B-Q8_0.gguf	
+# dropped (needs custom llama.cpp or broken GGUF): tmax-9b	samuelchristlie/tmax-9b-gguf	allenai_tmax-9b-Q8_0.gguf	third-party GGUF
+# dropped (needs custom llama.cpp or broken GGUF): k2-horizon-7b	IFM/K2-Horizon-7B-GGUF	K2-Horizon-7B-Q8_0.gguf	
+# dropped (needs custom llama.cpp or broken GGUF): zaya1-8b	Abiray/ZAYA1-8B-GGUF	ZAYA1-8B-Q8_0.gguf	third-party GGUF; llama.cpp arch support unverified

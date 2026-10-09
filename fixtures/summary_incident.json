@@ -1,0 +1,15 @@
+{
+  "seed": 99,
+  "facts": [
+    {"id": "start_time", "patterns": ["02:17", "2:17\\s*am", "0217"]},
+    {"id": "service", "patterns": ["checkout-api", "checkout api"]},
+    {"id": "error_rate", "patterns": ["42%", "42 percent", "forty-two percent"]},
+    {"id": "region", "patterns": ["eu-west-2", "eu west 2"]},
+    {"id": "root_cause", "patterns": ["connection pool", "pool exhaustion", "exhausted pool"]},
+    {"id": "trigger", "patterns": ["deploy", "deployment", "release 2026"]},
+    {"id": "duration", "patterns": ["47 minutes", "47 min", "forty-seven minutes"]},
+    {"id": "customers", "patterns": ["about 12000", "12,000", "12000 customers", "twelve thousand"]},
+    {"id": "mitigation", "patterns": ["rollback", "rolled back"]},
+    {"id": "followup", "patterns": ["postmortem", "post-mortem", "post mortem"]}
+  ]
+}

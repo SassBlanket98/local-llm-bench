@@ -1,0 +1,1168 @@
+[
+  {
+    "kind": "simple",
+    "prompt": "What is the current weather in Boston, Massachusetts?",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Look up the current weather for a city.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up, including region if given."
+              },
+              "units": {
+                "type": "string",
+                "description": "Temperature units. Defaults to celsius if omitted."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "get_weather",
+        "arguments": {
+          "location": ["Boston", "Boston, Massachusetts", "Boston, MA", "Boston Massachusetts"]
+        },
+        "optional": {
+          "units": ["celsius", "C", "metric", "centigrade"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "simple",
+    "prompt": "Please send an email to alice@example.com with the subject line Project update.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "send_email",
+          "description": "Send an email to one recipient.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string",
+                "description": "Recipient email address."
+              },
+              "subject": {
+                "type": "string",
+                "description": "Subject line."
+              },
+              "body": {
+                "type": "string",
+                "description": "Optional body text. Defaults to empty if omitted."
+              }
+            },
+            "required": ["to", "subject"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "send_email",
+        "arguments": {
+          "to": ["alice@example.com"],
+          "subject": ["Project update"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "simple",
+    "prompt": "Set a timer for 5 minutes.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "set_timer",
+          "description": "Start a countdown timer.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "minutes": {
+                "type": "integer",
+                "description": "Duration of the timer in whole minutes."
+              }
+            },
+            "required": ["minutes"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "set_timer",
+        "arguments": {
+          "minutes": [5]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "simple",
+    "prompt": "Search the web for llama.cpp.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "web_search",
+          "description": "Search the public web for a query.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "Search query text."
+              }
+            },
+            "required": ["query"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": ["llama.cpp", "llama cpp", "llamacpp"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "simple",
+    "prompt": "Convert 42 miles to kilometers.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "convert_units",
+          "description": "Convert a numeric value from one unit to another.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The amount to convert."
+              },
+              "from_unit": {
+                "type": "string",
+                "description": "Unit of the input value."
+              },
+              "to_unit": {
+                "type": "string",
+                "description": "Unit to convert into."
+              }
+            },
+            "required": ["value", "from_unit", "to_unit"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "convert_units",
+        "arguments": {
+          "value": [42],
+          "from_unit": ["miles", "mile", "mi"],
+          "to_unit": ["km", "kilometers", "kilometer"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "multiple",
+    "prompt": "Book me a one-way flight to Paris, France on 2026-10-09.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "book_flight",
+          "description": "Purchase a one-way flight ticket to a city on a given date.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "destination": {
+                "type": "string",
+                "description": "Destination city."
+              },
+              "date": {
+                "type": "string",
+                "description": "Departure date as YYYY-MM-DD."
+              },
+              "cabin": {
+                "type": "string",
+                "description": "Cabin class. Defaults to economy if omitted."
+              }
+            },
+            "required": ["destination", "date"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "book_hotel",
+          "description": "Reserve a hotel room in a city for a check-in date.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string",
+                "description": "City where the hotel is located."
+              },
+              "check_in": {
+                "type": "string",
+                "description": "Check-in date as YYYY-MM-DD."
+              }
+            },
+            "required": ["city", "check_in"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "search_flights",
+          "description": "Search flight options to a destination without purchasing a ticket.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "destination": {
+                "type": "string",
+                "description": "Destination city."
+              },
+              "date": {
+                "type": "string",
+                "description": "Departure date as YYYY-MM-DD."
+              }
+            },
+            "required": ["destination", "date"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_travel_weather",
+          "description": "Get the weather forecast for a travel destination on a date.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to forecast."
+              },
+              "date": {
+                "type": "string",
+                "description": "Date as YYYY-MM-DD."
+              }
+            },
+            "required": ["location", "date"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "book_flight",
+        "arguments": {
+          "destination": ["Paris", "Paris, France"],
+          "date": ["2026-10-09"]
+        },
+        "optional": {
+          "cabin": ["economy", "coach"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "multiple",
+    "prompt": "Add milk to my shopping list.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "add_to_list",
+          "description": "Add an item to a named list such as a shopping list.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string",
+                "description": "Item to add."
+              },
+              "list_name": {
+                "type": "string",
+                "description": "Which list to add to. Defaults to shopping if omitted."
+              }
+            },
+            "required": ["item"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "remove_from_list",
+          "description": "Remove an item from a shopping or todo list.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string",
+                "description": "Item to remove."
+              }
+            },
+            "required": ["item"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "clear_list",
+          "description": "Delete every item from a named list.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "list_name": {
+                "type": "string",
+                "description": "List to clear."
+              }
+            },
+            "required": ["list_name"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "order_grocery",
+          "description": "Place a grocery delivery order for a single item.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string",
+                "description": "Grocery item to order."
+              }
+            },
+            "required": ["item"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "add_to_list",
+        "arguments": {
+          "item": ["milk"]
+        },
+        "optional": {
+          "list_name": ["shopping", "shopping list"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "multiple",
+    "prompt": "What time is it now in Tokyo, Japan?",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_time",
+          "description": "Look up the current local time in a city or timezone.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "timezone": {
+                "type": "string",
+                "description": "City name or IANA timezone."
+              }
+            },
+            "required": ["timezone"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Get the current weather for a city.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "translate_text",
+          "description": "Translate text from one language into another.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "Text to translate."
+              },
+              "target_language": {
+                "type": "string",
+                "description": "Language to translate into."
+              }
+            },
+            "required": ["text", "target_language"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "convert_currency",
+          "description": "Convert an amount from one currency to another.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "Amount to convert."
+              },
+              "from_currency": {
+                "type": "string",
+                "description": "Source currency code."
+              },
+              "to_currency": {
+                "type": "string",
+                "description": "Target currency code."
+              }
+            },
+            "required": ["amount", "from_currency", "to_currency"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "get_time",
+        "arguments": {
+          "timezone": ["Tokyo", "Tokyo, Japan", "Asia/Tokyo"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "multiple",
+    "prompt": "Create a calendar event titled Standup on 2026-10-10 at 09:00.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "create_event",
+          "description": "Create a calendar event with a title, date, and start time.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Event title."
+              },
+              "date": {
+                "type": "string",
+                "description": "Event date as YYYY-MM-DD."
+              },
+              "time": {
+                "type": "string",
+                "description": "Start time as HH:MM in 24-hour clock."
+              }
+            },
+            "required": ["title", "date", "time"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "delete_event",
+          "description": "Delete a calendar event by title on a date.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Event title to delete."
+              },
+              "date": {
+                "type": "string",
+                "description": "Date as YYYY-MM-DD."
+              }
+            },
+            "required": ["title", "date"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "list_events",
+          "description": "List calendar events on a given date.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "description": "Date as YYYY-MM-DD."
+              }
+            },
+            "required": ["date"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "send_email",
+          "description": "Send an email to one recipient.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string",
+                "description": "Recipient email address."
+              },
+              "subject": {
+                "type": "string",
+                "description": "Subject line."
+              }
+            },
+            "required": ["to", "subject"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "create_event",
+        "arguments": {
+          "title": ["Standup"],
+          "date": ["2026-10-10"],
+          "time": ["09:00", "9:00", "09:00:00"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "multiple",
+    "prompt": "Play jazz music in the living room.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "play_music",
+          "description": "Play music of a given genre on a speaker in a room.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "genre": {
+                "type": "string",
+                "description": "Music genre to play."
+              },
+              "room": {
+                "type": "string",
+                "description": "Room whose speaker should play."
+              }
+            },
+            "required": ["genre", "room"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "stop_music",
+          "description": "Stop music playback in a room.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room": {
+                "type": "string",
+                "description": "Room whose speaker should stop."
+              }
+            },
+            "required": ["room"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "set_volume",
+          "description": "Change the volume of a speaker in a room.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room": {
+                "type": "string",
+                "description": "Room whose speaker to adjust."
+              },
+              "level": {
+                "type": "integer",
+                "description": "Volume level from 0 to 100."
+              }
+            },
+            "required": ["room", "level"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Get the current weather for a location.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "play_music",
+        "arguments": {
+          "genre": ["jazz"],
+          "room": ["living room", "living_room"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "parallel",
+    "prompt": "What is the weather in Boston, Massachusetts and in New York City?",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Look up the current weather for a city.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up."
+              },
+              "units": {
+                "type": "string",
+                "description": "Temperature units. Defaults to celsius if omitted."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "get_weather",
+        "arguments": {
+          "location": ["Boston", "Boston, Massachusetts", "Boston, MA", "Boston Massachusetts"]
+        },
+        "optional": {
+          "units": ["celsius", "C", "metric", "centigrade"]
+        }
+      },
+      {
+        "name": "get_weather",
+        "arguments": {
+          "location": ["New York", "New York City", "NYC", "New York, NY"]
+        },
+        "optional": {
+          "units": ["celsius", "C", "metric", "centigrade"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "parallel",
+    "prompt": "Send an email to bob@example.com with the subject Sync, and send another email to carol@example.com with the subject Sync.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "send_email",
+          "description": "Send an email to one recipient.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string",
+                "description": "Recipient email address."
+              },
+              "subject": {
+                "type": "string",
+                "description": "Subject line."
+              }
+            },
+            "required": ["to", "subject"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "send_email",
+        "arguments": {
+          "to": ["bob@example.com"],
+          "subject": ["Sync"]
+        }
+      },
+      {
+        "name": "send_email",
+        "arguments": {
+          "to": ["carol@example.com"],
+          "subject": ["Sync"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "parallel",
+    "prompt": "Set a timer for 3 minutes and another timer for 7 minutes.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "set_timer",
+          "description": "Start a countdown timer.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "minutes": {
+                "type": "integer",
+                "description": "Duration of the timer in whole minutes."
+              }
+            },
+            "required": ["minutes"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "set_timer",
+        "arguments": {
+          "minutes": [3]
+        }
+      },
+      {
+        "name": "set_timer",
+        "arguments": {
+          "minutes": [7]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "parallel",
+    "prompt": "Search the web for python asyncio, search for rust ownership, and search for llama.cpp vulkan.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "web_search",
+          "description": "Search the public web for a query.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "Search query text."
+              }
+            },
+            "required": ["query"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": ["python asyncio", "python asyncio library"]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": ["rust ownership"]
+        }
+      },
+      {
+        "name": "web_search",
+        "arguments": {
+          "query": ["llama.cpp vulkan", "llamacpp vulkan"]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "irrelevance",
+    "prompt": "Please convert 250 US dollars into Japanese yen at the current rate.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Look up the current weather for a city.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "send_email",
+          "description": "Send an email to one recipient.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string",
+                "description": "Recipient email address."
+              },
+              "subject": {
+                "type": "string",
+                "description": "Subject line."
+              }
+            },
+            "required": ["to", "subject"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "set_timer",
+          "description": "Start a countdown timer.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "minutes": {
+                "type": "integer",
+                "description": "Duration in minutes."
+              }
+            },
+            "required": ["minutes"]
+          }
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "kind": "irrelevance",
+    "prompt": "Reserve a table for two at an Italian restaurant in Chicago on 2026-10-15 at 19:00.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Look up the current weather for a city.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "send_email",
+          "description": "Send an email to one recipient.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string",
+                "description": "Recipient email address."
+              },
+              "subject": {
+                "type": "string",
+                "description": "Subject line."
+              }
+            },
+            "required": ["to", "subject"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "set_timer",
+          "description": "Start a countdown timer.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "minutes": {
+                "type": "integer",
+                "description": "Duration in minutes."
+              }
+            },
+            "required": ["minutes"]
+          }
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "kind": "irrelevance",
+    "prompt": "Turn off the ceiling lights in the kitchen.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "play_music",
+          "description": "Play music of a given genre on a speaker in a room.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "genre": {
+                "type": "string",
+                "description": "Music genre to play."
+              },
+              "room": {
+                "type": "string",
+                "description": "Room whose speaker should play."
+              }
+            },
+            "required": ["genre", "room"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "set_volume",
+          "description": "Change the volume of a speaker in a room.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room": {
+                "type": "string",
+                "description": "Room whose speaker to adjust."
+              },
+              "level": {
+                "type": "integer",
+                "description": "Volume level from 0 to 100."
+              }
+            },
+            "required": ["room", "level"]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_weather",
+          "description": "Get the current weather for a location.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "City to look up."
+              }
+            },
+            "required": ["location"]
+          }
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "kind": "typed",
+    "prompt": "Schedule a high-priority meeting titled Quarterly Review on 2026-03-01 with attendees alice@example.com and bob@example.com.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "schedule_meeting",
+          "description": "Schedule a meeting with a priority, date, title, and attendee list.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "description": "Meeting date as YYYY-MM-DD."
+              },
+              "priority": {
+                "type": "string",
+                "enum": ["low", "medium", "high"],
+                "description": "Meeting priority."
+              },
+              "title": {
+                "type": "string",
+                "description": "Meeting title."
+              },
+              "attendees": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Email addresses of attendees."
+              }
+            },
+            "required": ["date", "priority", "title", "attendees"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "schedule_meeting",
+        "arguments": {
+          "date": ["2026-03-01"],
+          "priority": ["high"],
+          "title": ["Quarterly Review"],
+          "attendees": [["alice@example.com", "bob@example.com"]]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "typed",
+    "prompt": "Create a user profile for a 30-year-old with the tags admin and ops.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "create_profile",
+          "description": "Create a user profile from a nested profile object.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "profile": {
+                "type": "object",
+                "description": "The user profile to create.",
+                "properties": {
+                  "age": {
+                    "type": "integer",
+                    "description": "Age in whole years."
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Role tags for the profile."
+                  }
+                },
+                "required": ["age", "tags"]
+              }
+            },
+            "required": ["profile"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "create_profile",
+        "arguments": {
+          "profile": [
+            {
+              "age": [30],
+              "tags": [["admin", "ops"]]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "typed",
+    "prompt": "Place an order for 2 units of SKU-9912 with express shipping, and tag it with the labels fragile and priority in that order.",
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "place_order",
+          "description": "Place a product order with shipping speed and ordered tags.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "sku": {
+                "type": "string",
+                "description": "Product SKU."
+              },
+              "quantity": {
+                "type": "integer",
+                "description": "Number of units to order."
+              },
+              "shipping": {
+                "type": "string",
+                "enum": ["standard", "express"],
+                "description": "Shipping speed."
+              },
+              "tags": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Labels to attach, in the given order."
+              }
+            },
+            "required": ["sku", "quantity", "shipping", "tags"]
+          }
+        }
+      }
+    ],
+    "expected": [
+      {
+        "name": "place_order",
+        "arguments": {
+          "sku": ["SKU-9912"],
+          "quantity": [2],
+          "shipping": ["express"],
+          "tags": [["fragile", "priority"]]
+        },
+        "ordered": true
+      }
+    ]
+  }
+]

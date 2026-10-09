@@ -1,0 +1,2 @@
+# slug	hf_repo	gguf_file	kv_note
+qwen3.5-0.8b	unsloth/Qwen3.5-0.8B-GGUF	Qwen3.5-0.8B-Q8_0.gguf	smoke test model

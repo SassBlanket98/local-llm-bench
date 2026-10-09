@@ -1,0 +1,88 @@
+[
+  {
+    "prompt": "Reply with exactly one sentence about coffee. Use between 8 and 14 words.",
+    "constraints": [{"type": "word_count_range", "min": 8, "max": 14}]
+  },
+  {
+    "prompt": "List exactly three benefits of walking. Use markdown bullets starting with -.",
+    "constraints": [{"type": "bullet_count", "count": 3}]
+  },
+  {
+    "prompt": "Write a two-sentence note about rain. Every letter must be lowercase (no capital letters).",
+    "constraints": [{"type": "all_lowercase", "min": 0, "max": 0}]
+  },
+  {
+    "prompt": "Describe a library in one paragraph. Include the words shelf, quiet, and reader.",
+    "constraints": [{"type": "must_include_keywords", "keywords": ["shelf", "quiet", "reader"]}]
+  },
+  {
+    "prompt": "Explain photosynthesis briefly. Do not use the words green, plant, or sun.",
+    "constraints": [{"type": "forbidden_words", "words": ["green", "plant", "sun"]}]
+  },
+  {
+    "prompt": "Return only JSON with keys name and age. Example shape: {\"name\": \"Ann\", \"age\": 30}.",
+    "constraints": [{"type": "json_only", "keys": ["name", "age"]}]
+  },
+  {
+    "prompt": "Write a short product blurb with sections exactly titled ## Overview and ## Specs.",
+    "constraints": [{"type": "section_headers", "headers": ["## Overview", "## Specs"]}]
+  },
+  {
+    "prompt": "Give one tip for better sleep. End your reply with the exact phrase: sweet dreams.",
+    "constraints": [{"type": "ends_with_phrase", "phrase": "sweet dreams."}]
+  },
+  {
+    "prompt": "Answer in 10 to 18 words about why backups matter.",
+    "constraints": [{"type": "word_count_range", "min": 10, "max": 18}]
+  },
+  {
+    "prompt": "Provide four reasons to learn typing. Use four bullet lines.",
+    "constraints": [{"type": "bullet_count", "count": 4}]
+  },
+  {
+    "prompt": "Write about clouds in lowercase only, at least twelve words.",
+    "constraints": [
+      {"type": "all_lowercase", "min": 0, "max": 0},
+      {"type": "word_count_range", "min": 12, "max": 40}
+    ]
+  },
+  {
+    "prompt": "One paragraph on teamwork mentioning trust and goal.",
+    "constraints": [{"type": "must_include_keywords", "keywords": ["trust", "goal"]}]
+  },
+  {
+    "prompt": "Describe a city without using traffic, car, or bus.",
+    "constraints": [{"type": "forbidden_words", "words": ["traffic", "car", "bus"]}]
+  },
+  {
+    "prompt": "Output JSON only: {\"ok\": true, \"count\": 2}.",
+    "constraints": [{"type": "json_only", "keys": ["ok", "count"]}]
+  },
+  {
+    "prompt": "Mini report with headers ## Problem and ## Fix, one line each under them.",
+    "constraints": [{"type": "section_headers", "headers": ["## Problem", "## Fix"]}]
+  },
+  {
+    "prompt": "Motivational line ending with: keep going!",
+    "constraints": [{"type": "ends_with_phrase", "phrase": "keep going!"}]
+  },
+  {
+    "prompt": "Between 6 and 9 words: why water is important.",
+    "constraints": [{"type": "word_count_range", "min": 6, "max": 9}]
+  },
+  {
+    "prompt": "Five bullet tips for remote work.",
+    "constraints": [{"type": "bullet_count", "count": 5}]
+  },
+  {
+    "prompt": "Short lowercase poem about stars, 15-25 words.",
+    "constraints": [
+      {"type": "all_lowercase", "min": 0, "max": 0},
+      {"type": "word_count_range", "min": 15, "max": 25}
+    ]
+  },
+  {
+    "prompt": "JSON object with keys city and country only.",
+    "constraints": [{"type": "json_only", "keys": ["city", "country"]}]
+  }
+]

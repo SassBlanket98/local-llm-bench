@@ -1,0 +1,3 @@
+# Download logs are written here by scripts/download_models.sh.
+*
+!.gitignore

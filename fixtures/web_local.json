@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is the flagship SKU and its current monthly fee in USD? Reply JSON only: {\"sku\": \"...\", \"fee_usd\": N}",
+    "expected": {"sku": "AX-900", "fee_usd": 49}
+  },
+  {
+    "question": "What is the primary support email? Reply JSON only: {\"email\": \"...\"}",
+    "expected": {"email": "help@bench.example"}
+  },
+  {
+    "question": "According to current (not archived) pages, what fee applies to AX-900? Reply JSON only: {\"fee_usd\": N}",
+    "expected": {"fee_usd": 49}
+  },
+  {
+    "question": "What is the BX-100 monthly fee in USD on the live pricing page? Reply JSON only: {\"fee_usd\": N}",
+    "expected": {"fee_usd": 29}
+  },
+  {
+    "question": "What year was Bench Labs founded (official About page, not blog rumors)? Reply JSON only: {\"founded_year\": N}",
+    "expected": {"founded_year": 2012}
+  }
+]

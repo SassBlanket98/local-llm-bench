@@ -1,0 +1,26 @@
+[
+  {
+    "question": "On the official Python 3.12 release page, what release date is shown? Reply JSON: {\"date\": \"YYYY-MM-DD\"}",
+    "url_hint": "https://www.python.org/downloads/release/python-3120/",
+    "expected": {"date": "2023-10-02"},
+    "accepted": [{"date": "2023-10-02"}, {"date": "October 2, 2023"}]
+  },
+  {
+    "question": "What is the title of RFC 9110? Reply JSON: {\"title\": \"...\"}",
+    "url_hint": "https://www.rfc-editor.org/info/rfc9110",
+    "expected": {"title": "HTTP Semantics"},
+    "accepted": [{"title": "HTTP Semantics"}]
+  },
+  {
+    "question": "What is PEP 8's status field? Reply JSON: {\"status\": \"...\"}",
+    "url_hint": "https://peps.python.org/pep-0008/",
+    "expected": {"status": "Active"},
+    "accepted": [{"status": "Active"}]
+  },
+  {
+    "question": "On Wikipedia's Python (programming language) page infobox, what is the first appeared year? Reply JSON: {\"year\": N}",
+    "url_hint": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+    "expected": {"year": 1991},
+    "accepted": [{"year": 1991}, {"year": "1991"}]
+  }
+]

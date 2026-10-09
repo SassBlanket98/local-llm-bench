@@ -1,0 +1,37 @@
+# Stage 3 cases: real Cursor briefs replayed from their parent commit. See docs/PLAN-stage3.md.
+# allowed: globs the change may touch without a scope penalty (tests/** is always allowed).
+
+[snapshot]
+parent = "c7edcb7"
+reference = "ce87ae8"
+allowed = ["src/llmbench/core.py", "src/llmbench/tasks/t9_agent_repo.py"]
+
+[docqa-gen]
+parent = "ce87ae8"
+reference = "3967c6e"
+allowed = ["src/llmbench/docqa_gen.py", "src/llmbench/tasks/t10_docqa.py"]
+
+[web-site]
+parent = "3967c6e"
+reference = "d93a1bd"
+allowed = ["fixtures/site/**", "fixtures/web_local.json", "src/llmbench/tasks/t12_web_local.py"]
+
+[gpu-fit]
+parent = "d93a1bd"
+reference = "9450c1e"
+allowed = ["src/llmbench/server.py"]
+
+[transcripts]
+parent = "9450c1e"
+reference = "d186d9c"
+allowed = ["src/llmbench/core.py", "src/llmbench/cli.py"]
+
+[rounding]
+parent = "d186d9c"
+reference = "deefdeb"
+allowed = ["src/llmbench/report.py"]
+
+[toolcall]
+parent = "140703e"
+reference = "92d5d34"
+allowed = ["fixtures/toolcall.json", "src/llmbench/toolcall_match.py", "src/llmbench/tasks/t8_toolcall.py"]

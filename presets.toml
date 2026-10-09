@@ -1,0 +1,173 @@
+# Vendor-recommended sampling from model cards.
+
+["qwen3.5-0.8b"]
+thinking = "toggle"
+
+["qwen3.5-0.8b".sampling]
+temperature = 1.0
+top_p = 0.95
+top_k = 20
+min_p = 0.0
+presence_penalty = 1.5
+repeat_penalty = 1.0
+
+["ornith-1.5-9b"]
+thinking = "always"
+
+["ornith-1.5-9b".sampling]
+temperature = 1.0
+top_p = 0.95
+top_k = 20
+min_p = 0.0
+presence_penalty = 1.5
+repeat_penalty = 1.0
+
+["qwen3.5-9b"]
+thinking = "toggle"
+
+["qwen3.5-9b".sampling]
+temperature = 1.0
+top_p = 0.95
+top_k = 20
+min_p = 0.0
+presence_penalty = 1.5
+repeat_penalty = 1.0
+
+["mimo-v2.6-distill-9b"]
+thinking = "toggle"
+
+["mimo-v2.6-distill-9b".sampling]
+temperature = 1.0
+top_p = 0.95
+top_k = 20
+min_p = 0.0
+presence_penalty = 1.5
+repeat_penalty = 1.0
+
+["gemma-4-12b"]
+thinking = "toggle"
+
+["gemma-4-12b".sampling]
+temperature = 1.0
+top_p = 0.95
+
+["spark-x2.5-4b"]
+thinking = "toggle"
+
+["spark-x2.5-4b".sampling]
+temperature = 0.7
+top_p = 0.95
+
+["gpt-oss-20b"]
+thinking = "effort"
+
+["gpt-oss-20b".sampling]
+temperature = 1.0
+top_p = 1.0
+
+["granite-4.2-8b"]
+thinking = "toggle"
+
+["granite-4.2-8b".sampling]
+temperature = 1.0
+top_p = 0.95
+
+["nanbeige4.2-3b"]
+thinking = "toggle"
+
+["nanbeige4.2-3b".sampling]
+temperature = 0.6
+top_p = 0.95
+
+["qwen3.5-4b"]
+thinking = "toggle"
+
+["qwen3.5-4b".sampling]
+temperature = 1.0
+top_p = 0.95
+top_k = 20
+min_p = 0.0
+presence_penalty = 1.5
+repeat_penalty = 1.0
+
+["minicpm5-2b"]
+thinking = "toggle"
+
+["minicpm5-2b".sampling]
+temperature = 1.0
+top_p = 0.95
+min_p = 0.0
+
+["neohorse-1-9b"]
+thinking = "always"
+
+["neohorse-1-9b".sampling]
+temperature = 1.0
+top_p = 0.95
+top_k = 20
+min_p = 0.0
+presence_penalty = 1.5
+repeat_penalty = 1.0
+
+["lfm2.5-8b-a1b"]
+thinking = "always"
+
+["lfm2.5-8b-a1b".sampling]
+temperature = 0.2
+top_p = 0.95
+
+["gemma-4-e4b"]
+thinking = "toggle"
+
+["gemma-4-e4b".sampling]
+temperature = 1.0
+top_p = 0.95
+
+["mellum2-12b-thinking"]
+thinking = "always"
+
+["mellum2-12b-thinking".sampling]
+temperature = 0.7
+top_p = 0.95
+
+["nemotron-3-nano-4b"]
+thinking = "toggle"
+
+["nemotron-3-nano-4b".sampling]
+temperature = 0.6
+top_p = 0.95
+
+["ministral-3-14b-reasoning"]
+thinking = "always"
+
+["ministral-3-14b-reasoning".sampling]
+temperature = 0.7
+top_p = 0.95
+
+["lfm2.5-2.6b"]
+thinking = "always"
+
+["lfm2.5-2.6b".sampling]
+temperature = 0.2
+top_p = 0.95
+
+["tmax-9b"]
+thinking = "none"
+
+["tmax-9b".sampling]
+temperature = 0.7
+top_p = 0.95
+
+["k2-horizon-7b"]
+thinking = "none"
+
+["k2-horizon-7b".sampling]
+temperature = 0.7
+top_p = 0.95
+
+["zaya1-8b"]
+thinking = "none"
+
+["zaya1-8b".sampling]
+temperature = 0.7
+top_p = 0.95
