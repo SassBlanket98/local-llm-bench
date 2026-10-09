@@ -1,6 +1,6 @@
 # local-llm-bench
 
-A benchmark harness for local GGUF models running on `llama-server` (llama.cpp), built to answer one question on my own hardware: which model that fits a 16 GB GPU is good enough to work as a coding or agent worker.
+A benchmark harness for local GGUF models running on `llama-server` (llama.cpp), built to answer one question on my own hardware: which model that fits a 16 GB GPU is good enough to work as a coding or agent worker. AI coding agents wrote the code under my direction.
 
 It runs one model at a time, unattended. For each model it checks that the model fits on the GPU, tunes its settings on a short calibration set, runs the task suite, and writes a report. Every task is graded by code.
 
